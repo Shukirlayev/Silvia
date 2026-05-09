@@ -40,11 +40,11 @@ export function Features() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="md:col-span-2 glass-pill p-8 md:p-10 rounded-3xl flex flex-col justify-between group overflow-hidden relative min-h-[300px] bg-white/[0.02] border border-white/[0.05] hover:border-white/10 transition-all duration-500 hover:-translate-y-1"
+            className="md:col-span-2 glass-pill p-8 md:p-10 rounded-3xl flex flex-col justify-between group overflow-hidden relative min-h-[300px] bg-white/[0.02] border border-white/[0.05] hover:border-white/15 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-20px_rgba(99,102,241,0.2)]"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-            <div className="relative z-10 w-14 h-14 rounded-full border border-white/20 bg-white/5 flex items-center justify-center mb-8 shadow-inner">
-              <Sun className="w-6 h-6 text-white/80" />
+            <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+            <div className="relative z-10 w-14 h-14 rounded-full border border-white/20 bg-white/5 flex items-center justify-center mb-8 shadow-inner group-hover:scale-110 group-hover:bg-indigo-500/20 group-hover:border-indigo-500/50 transition-all duration-500">
+              <Sun className="w-6 h-6 text-white/80 group-hover:text-indigo-300 transition-colors" />
             </div>
             <div className="relative z-10 flex-1 flex flex-col justify-end">
               <h3 className="text-2xl font-medium text-white mb-3 tracking-wide">Tonggi uyg'onish</h3>
@@ -60,11 +60,11 @@ export function Features() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="glass-pill p-8 md:p-10 rounded-3xl flex flex-col justify-between group overflow-hidden relative min-h-[300px] bg-white/[0.02] border border-white/[0.05] hover:border-white/10 transition-all duration-500 hover:-translate-y-1"
+            className="glass-pill p-8 md:p-10 rounded-3xl flex flex-col justify-between group overflow-hidden relative min-h-[300px] bg-white/[0.02] border border-white/[0.05] hover:border-white/15 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-20px_rgba(59,130,246,0.2)]"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-            <div className="relative z-10 w-14 h-14 rounded-full border border-white/20 bg-white/5 flex items-center justify-center mb-8 shadow-inner">
-              <Moon className="w-6 h-6 text-white/80" />
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+            <div className="relative z-10 w-14 h-14 rounded-full border border-white/20 bg-white/5 flex items-center justify-center mb-8 shadow-inner group-hover:scale-110 group-hover:bg-blue-500/20 group-hover:border-blue-500/50 transition-all duration-500">
+              <Moon className="w-6 h-6 text-white/80 group-hover:text-blue-300 transition-colors" />
             </div>
             <div className="relative z-10 flex-1 flex flex-col justify-end">
               <h3 className="text-2xl font-medium text-white mb-3 tracking-wide">Chuqur uyqu</h3>
@@ -80,11 +80,11 @@ export function Features() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="glass-pill p-8 md:p-10 rounded-3xl flex flex-col justify-between group overflow-hidden relative min-h-[300px] bg-white/[0.02] border border-white/[0.05] hover:border-white/10 transition-all duration-500 hover:-translate-y-1"
+            className="glass-pill p-8 md:p-10 rounded-3xl flex flex-col justify-between group overflow-hidden relative min-h-[300px] bg-white/[0.02] border border-white/[0.05] hover:border-white/15 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-20px_rgba(20,184,166,0.2)]"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-teal-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-            <div className="relative z-10 w-14 h-14 rounded-full border border-white/20 bg-white/5 flex items-center justify-center mb-8 shadow-inner">
-              <Wind className="w-6 h-6 text-white/80" />
+            <div className="absolute inset-0 bg-gradient-to-br from-teal-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+            <div className="relative z-10 w-14 h-14 rounded-full border border-white/20 bg-white/5 flex items-center justify-center mb-8 shadow-inner group-hover:scale-110 group-hover:bg-teal-500/20 group-hover:border-teal-500/50 transition-all duration-500">
+              <Wind className="w-6 h-6 text-white/80 group-hover:text-teal-300 transition-colors" />
             </div>
             <div className="relative z-10 flex-1 flex flex-col justify-end">
               <h3 className="text-2xl font-medium text-white mb-3 tracking-wide">Hissiy balans</h3>
@@ -100,11 +100,11 @@ export function Features() {
              whileInView={{ opacity: 1, y: 0 }}
              viewport={{ once: true, margin: "-50px" }}
              transition={{ duration: 0.8, delay: 0.4 }}
-             className="md:col-span-2 glass-pill p-8 md:p-10 rounded-3xl flex flex-col justify-between group overflow-hidden relative min-h-[300px] bg-white/[0.02] border border-white/[0.05] hover:border-white/10 transition-all duration-500 hover:-translate-y-1"
+             className="md:col-span-2 glass-pill p-8 md:p-10 rounded-3xl flex flex-col justify-between group overflow-hidden relative min-h-[300px] bg-white/[0.02] border border-white/[0.05] hover:border-white/15 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-20px_rgba(168,85,247,0.2)]"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-            <div className="relative z-10 w-14 h-14 rounded-full border border-white/20 bg-white/5 flex items-center justify-center mb-8 shadow-inner">
-              <Sparkles className="w-6 h-6 text-white/80" />
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+            <div className="relative z-10 w-14 h-14 rounded-full border border-white/20 bg-white/5 flex items-center justify-center mb-8 shadow-inner group-hover:scale-110 group-hover:bg-purple-500/20 group-hover:border-purple-500/50 transition-all duration-500">
+              <Sparkles className="w-6 h-6 text-white/80 group-hover:text-purple-300 transition-colors" />
             </div>
             <div className="relative z-10 flex-1 flex flex-col justify-end">
               <h3 className="text-2xl font-medium text-white mb-3 tracking-wide">Shaxsiy rivojlanish</h3>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type FormEvent, type ChangeEvent } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { CrossfadeVideo } from "./CrossfadeVideo";
 
@@ -7,7 +7,7 @@ export function Hero() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (!email) return;
 
@@ -89,6 +89,8 @@ export function Hero() {
                   <img 
                     src={`https://i.pravatar.cc/100?img=${i + 10}`} 
                     alt="Avatar"
+                    decoding="async"
+                    loading="lazy"
                     className="w-full h-full object-cover opacity-80"
                   />
                 </div>
@@ -134,12 +136,12 @@ export function Hero() {
                 >
                   <input
                     type="email"
-                    placeholder="Elektron pochtangizni kiriting"
+                    placeholder="Email manzilingiz"
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     disabled={status === "loading"}
-                    className="flex-1 bg-transparent border-none px-4 py-4 sm:px-6 sm:py-3 text-center sm:text-left text-white placeholder:text-white/40 text-sm font-light focus:outline-none focus:ring-0 disabled:opacity-50"
+                    className="flex-1 w-full min-w-0 bg-transparent border-none px-4 py-4 sm:px-5 sm:py-3 text-center sm:text-left text-white placeholder:text-white/40 text-[16px] sm:text-sm font-light focus:outline-none focus:ring-0 disabled:opacity-50"
                   />
                   <button 
                     type="submit" 
