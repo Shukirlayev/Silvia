@@ -1,5 +1,6 @@
 import { useState, type FormEvent, type ChangeEvent } from "react";
 import { motion, AnimatePresence } from "motion/react";
+import { CrossfadeVideo } from "./CrossfadeVideo";
 
 export function Hero() {
   const [email, setEmail] = useState("");
@@ -59,15 +60,8 @@ export function Hero() {
 
   return (
     <div className="relative w-full min-h-[100dvh] overflow-hidden select-none flex flex-col">
-      {/* Background WebP Image */}
-      <div className="absolute inset-0 w-full h-full z-0 bg-[#050505]">
-        <img 
-          src="https://s2.ezgif.com/tmp/ezgif-247d0a165bf1d040.webp" 
-          alt="Meditation Background"
-          decoding="async"
-          className="absolute inset-0 w-full h-full object-cover opacity-80"
-        />
-      </div>
+      {/* Seamless Continuous Background Video */}
+      <CrossfadeVideo src="https://d8j0ntlcm91z4.cloudfront.net/user_30c6yRkxUog0TZ5432rCR7HN4Pe/hf_20260427_035806_c891b56e-6593-4352-91f8-da2f4a240dd6.mp4" />
 
       {/* Overlays */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80 z-10"></div>
