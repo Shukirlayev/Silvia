@@ -77,15 +77,15 @@ export function Hero() {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="flex flex-col items-center text-center max-w-4xl mx-auto space-y-10 flex-1 justify-center"
+          className="flex flex-col items-center text-center w-full max-w-4xl mx-auto space-y-8 sm:space-y-10 flex-1 justify-center z-10"
         >
           {/* Badge */}
-          <motion.div variants={itemVariants} className="glass-pill px-4 py-2 rounded-full flex items-center gap-3">
-            <div className="flex -space-x-2">
+          <motion.div variants={itemVariants} className="glass-pill p-2 pr-4 sm:px-4 sm:py-2 rounded-full flex items-center gap-2 sm:gap-3 max-w-full">
+            <div className="flex -space-x-2 shrink-0">
               {[...Array(4)].map((_, i) => (
                 <div
                   key={i}
-                  className="w-6 h-6 rounded-full border border-white/20 bg-zinc-800 flex items-center justify-center overflow-hidden"
+                  className="w-5 h-5 sm:w-6 sm:h-6 rounded-full border border-white/20 bg-zinc-800 flex items-center justify-center overflow-hidden"
                 >
                   <img 
                     src={`https://i.pravatar.cc/100?img=${i + 10}`} 
@@ -95,17 +95,17 @@ export function Hero() {
                 </div>
               ))}
             </div>
-            <span className="text-[11px] uppercase tracking-widest font-semibold text-white/80">
+            <span className="text-[9px] sm:text-[11px] uppercase tracking-widest font-semibold text-white/80 text-left leading-tight line-clamp-2">
               Kutish ro'yxatida allaqachon 5,732 ta foydalanuvchi bor!
             </span>
           </motion.div>
 
           {/* Headlines */}
-          <motion.div variants={itemVariants} className="space-y-0">
-            <span className="hero-title-line font-semibold text-[clamp(2.1rem,5vw,6rem)]">
+          <motion.div variants={itemVariants} className="flex flex-col items-center">
+            <span className="hero-title-line font-semibold text-[clamp(2.2rem,8vw,6rem)] leading-[1.1]">
               O'zligingizni toping.
             </span>
-            <span className="hero-title-line font-extralight text-white/80 text-[clamp(2.1rem,5vw,6rem)]">
+            <span className="hero-title-line font-extralight text-white/80 text-[clamp(2.2rem,8vw,6rem)] leading-[1.1]">
               Hammasini o'zgartiring.
             </span>
           </motion.div>
@@ -113,24 +113,24 @@ export function Hero() {
           {/* Subheading */}
           <motion.p 
             variants={itemVariants}
-            className="max-w-2xl text-lg text-white/70 font-light leading-relaxed tracking-wide px-4"
+            className="max-w-2xl text-base sm:text-lg text-white/70 font-light leading-relaxed tracking-wide px-4"
           >
             Chuqurroq nafas oling, yengilroq his qiling va ongliroq yashang. Balans, xotirjamlik va ichki kuch yaratishingizga yordam beruvchi boshqariladigan meditatsiyalar, kundalik amaliyotlar va vositalar — istalgan vaqtda, istalgan joyda.
           </motion.p>
 
           {/* Opt-in Form */}
-          <motion.div variants={itemVariants} className="w-full max-w-lg glass-pill p-1.5 rounded-full flex flex-col sm:flex-row items-center shadow-2xl transition-all hover:bg-white/10">
+          <motion.div variants={itemVariants} className="w-full max-w-lg glass-pill p-1.5 rounded-2xl sm:rounded-full flex flex-col sm:flex-row items-center shadow-[0_0_40px_-15px_rgba(255,255,255,0.1)] transition-all hover:bg-white/10">
             {status === "success" ? (
-              <div className="w-full text-center px-6 py-3 text-white font-medium flex items-center justify-center gap-2">
-                <svg className="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-full text-center px-6 py-4 sm:py-3 text-white font-medium flex items-center justify-center gap-2">
+                <svg className="w-5 h-5 text-green-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                 </svg>
-                Rahmat! Siz kutish ro'yxatiga qo'shildingiz.
+                <span className="text-sm sm:text-base">Rahmat! Siz kutish ro'yxatiga qo'shildingiz.</span>
               </div>
             ) : (
               <form 
                 onSubmit={handleSubmit}
-                className="flex w-full items-center"
+                className="flex flex-col sm:flex-row w-full items-stretch sm:items-center"
               >
                 <input
                   type="email"
@@ -139,15 +139,15 @@ export function Hero() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   disabled={status === "loading"}
-                  className="flex-1 bg-transparent border-none px-6 py-3 sm:py-0 text-white placeholder:text-white/40 text-sm font-light focus:outline-none focus:ring-0 disabled:opacity-50"
+                  className="flex-1 bg-transparent border-none px-4 py-4 sm:px-6 sm:py-3 text-center sm:text-left text-white placeholder:text-white/40 text-sm font-light focus:outline-none focus:ring-0 disabled:opacity-50"
                 />
                 <button 
                   type="submit" 
                   disabled={status === "loading"}
-                  className="bg-white text-black px-6 py-3 rounded-full flex items-center justify-center gap-2 text-sm font-semibold hover:bg-gray-100 transition-colors shadow-lg active:scale-95 w-full sm:w-auto mt-2 sm:mt-0 disabled:opacity-50"
+                  className="bg-white text-black px-6 py-3.5 sm:py-3 rounded-xl sm:rounded-full flex items-center justify-center gap-2 text-sm font-semibold hover:bg-gray-100 transition-colors shadow-lg active:scale-95 w-full sm:w-auto mt-1 sm:mt-0 disabled:opacity-50 shrink-0"
                 >
                   {status === "loading" ? "Yuborilmoqda..." : "Kutish ro'yxatiga qo'shilish"}
-                  <div className="w-5 h-5 rounded-full bg-black flex items-center justify-center">
+                  <div className="w-5 h-5 rounded-full bg-black flex items-center justify-center shrink-0">
                     <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M9 5l7 7-7 7"></path></svg>
                   </div>
                 </button>
@@ -155,7 +155,7 @@ export function Hero() {
             )}
           </motion.div>
           {status === "error" && (
-            <div className="text-red-400 text-sm mt-3 font-medium">{errorMessage}</div>
+            <div className="text-red-400 text-sm mt-3 font-medium px-4">{errorMessage}</div>
           )}
         </motion.main>
 

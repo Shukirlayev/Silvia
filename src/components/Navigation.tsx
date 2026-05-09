@@ -28,8 +28,9 @@ export function Navigation() {
         <button className="hover:text-white transition-colors">Hamjamiyat</button>
       </div>
 
-      <button className="glass-pill px-6 py-2.5 rounded-full text-sm font-medium tracking-wide hover:bg-white/20 transition-all">
-        Kutish ro'yxatiga qo'shilish
+      <button className="glass-pill px-4 py-2 sm:px-6 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium tracking-wide hover:bg-white/20 transition-all">
+        <span className="sm:hidden">Qo'shilish</span>
+        <span className="hidden sm:inline">Kutish ro'yxatiga qo'shilish</span>
       </button>
     </motion.nav>
   );
