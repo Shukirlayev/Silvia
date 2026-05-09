@@ -5,12 +5,14 @@ import { CrossfadeVideo } from "./CrossfadeVideo";
 export function Hero() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
 
     setStatus("loading");
+    setErrorMessage("");
     try {
       const response = await fetch("/api/waitlist", {
         method: "POST",
@@ -18,15 +20,18 @@ export function Hero() {
         body: JSON.stringify({ email }),
       });
 
+      const data = await response.json().catch(() => ({}));
+
       if (!response.ok) {
-        throw new Error("Xatolik");
+        throw new Error(data.error || "Xatolik yuz berdi");
       }
 
       setStatus("success");
       setEmail("");
-    } catch (error) {
+    } catch (error: any) {
       console.error(error);
       setStatus("error");
+      setErrorMessage(error.message || "Xatolik yuz berdi. Iltimos qayta urinib ko'ring.");
     }
   };
 
@@ -150,7 +155,7 @@ export function Hero() {
             )}
           </motion.div>
           {status === "error" && (
-            <div className="text-red-400 text-sm mt-3 font-medium">Xatolik yuz berdi. Iltimos qayta urinib ko'ring.</div>
+            <div className="text-red-400 text-sm mt-3 font-medium">{errorMessage}</div>
           )}
         </motion.main>
 
