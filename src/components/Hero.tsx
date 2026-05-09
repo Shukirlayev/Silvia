@@ -59,25 +59,24 @@ export function Hero() {
   };
 
   return (
-    <div className="relative w-full h-[100dvh] overflow-hidden select-none">
+    <div className="relative w-full min-h-[100dvh] overflow-hidden select-none flex flex-col">
       {/* Seamless Continuous Background Video */}
       <CrossfadeVideo src="https://d8j0ntlcm91z4.cloudfront.net/user_30c6yRkxUog0TZ5432rCR7HN4Pe/hf_20260427_035806_c891b56e-6593-4352-91f8-da2f4a240dd6.mp4" />
 
       {/* Overlays */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80 z-10"></div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(255,255,255,0.05)_0%,transparent_60%)] z-10"></div>
-      <div className="noise-overlay z-20"></div>
+      <div className="absolute inset-0 noise-overlay z-20"></div>
 
       {/* UI Layer */}
-      <div className="relative z-30 h-full flex flex-col justify-center px-6 md:px-12 pt-32 pb-8">
+      <div className="relative z-30 flex-1 flex flex-col px-6 md:px-12 pt-32 pb-8">
         
-
         {/* Main Hero */}
         <motion.main
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="flex flex-col items-center text-center w-full max-w-4xl mx-auto space-y-8 sm:space-y-10 flex-1 justify-center z-10"
+          className="flex flex-col items-center text-center w-full max-w-4xl mx-auto space-y-8 sm:space-y-10 z-10 my-auto"
         >
           {/* Badge */}
           <motion.div variants={itemVariants} className="glass-pill p-2 pr-4 sm:px-4 sm:py-2 rounded-full flex items-center gap-2 sm:gap-3 max-w-full">
