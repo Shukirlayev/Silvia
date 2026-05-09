@@ -3,12 +3,18 @@ import { Wind, Moon, Sun, Sparkles } from "lucide-react";
 
 export function Features() {
   return (
-    <section id="features" className="py-24 md:py-40 px-6 bg-[#050505] relative z-20 overflow-hidden">
-      {/* Background gradients */}
+    <section id="features" className="py-24 md:py-40 px-6 bg-[#030303] relative z-20 overflow-hidden">
+      {/* Background texture & gradients */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:40px_40px]"></div>
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
-      <div className="absolute top-1/4 left-0 w-96 h-96 bg-white/[0.02] rounded-full blur-[100px] pointer-events-none"></div>
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-white/[0.03] rounded-full blur-[120px] pointer-events-none"></div>
-      <div className="noise-overlay z-10"></div>
+      
+      {/* Glowing orbs */}
+      <div className="absolute top-[20%] left-[-10%] w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[120px] pointer-events-none mix-blend-screen"></div>
+      <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-teal-500/10 rounded-full blur-[150px] pointer-events-none mix-blend-screen"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-white/[0.02] rounded-full blur-[120px] pointer-events-none"></div>
+      
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#030303]/50 to-[#030303] pointer-events-none"></div>
+      <div className="noise-overlay z-10 opacity-70"></div>
       
       <div className="max-w-6xl mx-auto relative z-20">
         <motion.div 
@@ -34,9 +40,9 @@ export function Features() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="md:col-span-2 glass-pill p-8 md:p-10 rounded-3xl flex flex-col justify-between group overflow-hidden relative min-h-[300px]"
+            className="md:col-span-2 glass-pill p-8 md:p-10 rounded-3xl flex flex-col justify-between group overflow-hidden relative min-h-[300px] bg-white/[0.02] border border-white/[0.05] hover:border-white/10 transition-all duration-500 hover:-translate-y-1"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-white/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
             <div className="relative z-10 w-14 h-14 rounded-full border border-white/20 bg-white/5 flex items-center justify-center mb-8 shadow-inner">
               <Sun className="w-6 h-6 text-white/80" />
             </div>
@@ -54,9 +60,9 @@ export function Features() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="glass-pill p-8 md:p-10 rounded-3xl flex flex-col justify-between group overflow-hidden relative min-h-[300px]"
+            className="glass-pill p-8 md:p-10 rounded-3xl flex flex-col justify-between group overflow-hidden relative min-h-[300px] bg-white/[0.02] border border-white/[0.05] hover:border-white/10 transition-all duration-500 hover:-translate-y-1"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-white/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
             <div className="relative z-10 w-14 h-14 rounded-full border border-white/20 bg-white/5 flex items-center justify-center mb-8 shadow-inner">
               <Moon className="w-6 h-6 text-white/80" />
             </div>
@@ -74,9 +80,9 @@ export function Features() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="glass-pill p-8 md:p-10 rounded-3xl flex flex-col justify-between group overflow-hidden relative min-h-[300px]"
+            className="glass-pill p-8 md:p-10 rounded-3xl flex flex-col justify-between group overflow-hidden relative min-h-[300px] bg-white/[0.02] border border-white/[0.05] hover:border-white/10 transition-all duration-500 hover:-translate-y-1"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-white/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-teal-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
             <div className="relative z-10 w-14 h-14 rounded-full border border-white/20 bg-white/5 flex items-center justify-center mb-8 shadow-inner">
               <Wind className="w-6 h-6 text-white/80" />
             </div>
@@ -94,9 +100,9 @@ export function Features() {
              whileInView={{ opacity: 1, y: 0 }}
              viewport={{ once: true, margin: "-50px" }}
              transition={{ duration: 0.8, delay: 0.4 }}
-             className="md:col-span-2 glass-pill p-8 md:p-10 rounded-3xl flex flex-col justify-between group overflow-hidden relative min-h-[300px]"
+             className="md:col-span-2 glass-pill p-8 md:p-10 rounded-3xl flex flex-col justify-between group overflow-hidden relative min-h-[300px] bg-white/[0.02] border border-white/[0.05] hover:border-white/10 transition-all duration-500 hover:-translate-y-1"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-white/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
             <div className="relative z-10 w-14 h-14 rounded-full border border-white/20 bg-white/5 flex items-center justify-center mb-8 shadow-inner">
               <Sparkles className="w-6 h-6 text-white/80" />
             </div>

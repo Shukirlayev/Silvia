@@ -17,10 +17,11 @@ export function HowItWorks() {
   ];
 
   return (
-    <section className="py-24 md:py-40 px-6 bg-[#050505] relative z-20 overflow-hidden">
+    <section className="py-24 md:py-40 px-6 bg-[#030303] relative z-20 overflow-hidden border-t border-white/[0.02]">
       {/* Background gradients */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_left,_var(--tw-gradient-stops))] from-white/[0.04] via-[#050505]/20 to-[#050505] z-0"></div>
-      <div className="noise-overlay z-10"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_0%_50%,rgba(120,119,198,0.08),transparent)] z-0"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_100%_100%,rgba(255,255,255,0.03),transparent)] z-0"></div>
+      <div className="noise-overlay z-10 opacity-60"></div>
       
       <div className="max-w-6xl mx-auto relative z-20">
         <div className="flex flex-col md:flex-row gap-16 md:gap-24 items-center">
@@ -53,9 +54,10 @@ export function HowItWorks() {
                 className="flex gap-6 relative"
               >
                 {index !== steps.length - 1 && (
-                  <div className="absolute left-6 top-16 bottom-[-3rem] w-px bg-gradient-to-b from-white/20 to-transparent"></div>
+                  <div className="absolute left-6 top-16 bottom-[-3rem] w-px bg-gradient-to-b from-white/20 via-white/5 to-transparent"></div>
                 )}
-                <div className="w-12 h-12 rounded-full glass-pill border border-white/20 flex items-center justify-center shrink-0 z-10 text-white font-medium tracking-widest text-sm shadow-lg tracking-widest">
+                <div className="w-12 h-12 rounded-full bg-black border border-white/20 flex items-center justify-center shrink-0 z-10 text-white font-medium text-sm shadow-[0_0_20px_rgba(255,255,255,0.1)] relative">
+                  <div className="absolute inset-0 rounded-full border border-white/30 animate-ping opacity-20"></div>
                   0{index + 1}
                 </div>
                 <div className="space-y-3 pt-2">

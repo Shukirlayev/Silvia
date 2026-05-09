@@ -6,11 +6,16 @@ export function Footer() {
   };
 
   return (
-    <footer className="relative py-24 md:py-32 px-6 bg-[#050505] overflow-hidden z-20">
+    <footer className="relative py-24 md:py-32 px-6 bg-[#030303] overflow-hidden z-20 border-t border-white/[0.02]">
       {/* Background gradients */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_100%,#000_70%,transparent_100%)]"></div>
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-white/[0.04] blur-[120px] rounded-full pointer-events-none z-10 opacity-60"></div>
-      <div className="noise-overlay z-10"></div>
+      
+      {/* Glowing horizon */}
+      <div className="absolute bottom-[-200px] left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-indigo-500/20 blur-[150px] rounded-full pointer-events-none z-10 mix-blend-screen"></div>
+      <div className="absolute bottom-[-100px] left-1/2 -translate-x-1/2 w-[400px] h-[200px] bg-white/10 blur-[80px] rounded-full pointer-events-none z-10 mix-blend-screen"></div>
+      
+      <div className="noise-overlay z-10 opacity-70"></div>
       
       <div className="max-w-4xl mx-auto relative z-20 text-center space-y-12">
         <motion.div
