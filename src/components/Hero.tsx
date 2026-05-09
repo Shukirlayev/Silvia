@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import { CrossfadeVideo } from "./CrossfadeVideo";
 
 export function Hero() {
@@ -118,40 +118,64 @@ export function Hero() {
           </motion.p>
 
           {/* Opt-in Form */}
-          <motion.div variants={itemVariants} className="w-full max-w-lg glass-pill p-1.5 rounded-2xl sm:rounded-full flex flex-col sm:flex-row items-center shadow-[0_0_40px_-15px_rgba(255,255,255,0.1)] transition-all hover:bg-white/10">
-            {status === "success" ? (
-              <div className="w-full text-center px-6 py-4 sm:py-3 text-white font-medium flex items-center justify-center gap-2">
-                <svg className="w-5 h-5 text-green-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                </svg>
-                <span className="text-sm sm:text-base">Rahmat! Siz kutish ro'yxatiga qo'shildingiz.</span>
-              </div>
-            ) : (
-              <form 
-                onSubmit={handleSubmit}
-                className="flex flex-col sm:flex-row w-full items-stretch sm:items-center"
-              >
-                <input
-                  type="email"
-                  placeholder="Elektron pochtangizni kiriting"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  disabled={status === "loading"}
-                  className="flex-1 bg-transparent border-none px-4 py-4 sm:px-6 sm:py-3 text-center sm:text-left text-white placeholder:text-white/40 text-sm font-light focus:outline-none focus:ring-0 disabled:opacity-50"
-                />
-                <button 
-                  type="submit" 
-                  disabled={status === "loading"}
-                  className="bg-white text-black px-6 py-3.5 sm:py-3 rounded-xl sm:rounded-full flex items-center justify-center gap-2 text-sm font-semibold hover:bg-gray-100 transition-colors shadow-lg active:scale-95 w-full sm:w-auto mt-1 sm:mt-0 disabled:opacity-50 shrink-0"
+          <motion.div variants={itemVariants} className="w-full max-w-lg relative">
+            <div className="w-full glass-pill p-1.5 rounded-2xl sm:rounded-full flex flex-col sm:flex-row items-center shadow-[0_0_40px_-15px_rgba(255,255,255,0.1)] transition-all hover:bg-white/10">
+              {status === "success" ? (
+                <div className="w-full text-center px-6 py-4 sm:py-3 text-white font-medium flex items-center justify-center gap-2">
+                  <svg className="w-5 h-5 text-green-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="text-sm sm:text-base">Rahmat! Siz kutish ro'yxatiga qo'shildingiz.</span>
+                </div>
+              ) : (
+                <form 
+                  onSubmit={handleSubmit}
+                  className="flex flex-col sm:flex-row w-full items-stretch sm:items-center"
                 >
-                  {status === "loading" ? "Yuborilmoqda..." : "Kutish ro'yxatiga qo'shilish"}
-                  <div className="w-5 h-5 rounded-full bg-black flex items-center justify-center shrink-0">
-                    <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M9 5l7 7-7 7"></path></svg>
-                  </div>
-                </button>
-              </form>
-            )}
+                  <input
+                    type="email"
+                    placeholder="Elektron pochtangizni kiriting"
+                    required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    disabled={status === "loading"}
+                    className="flex-1 bg-transparent border-none px-4 py-4 sm:px-6 sm:py-3 text-center sm:text-left text-white placeholder:text-white/40 text-sm font-light focus:outline-none focus:ring-0 disabled:opacity-50"
+                  />
+                  <button 
+                    type="submit" 
+                    disabled={status === "loading"}
+                    className="bg-white text-black px-6 py-3.5 sm:py-3 rounded-xl sm:rounded-full flex items-center justify-center gap-2 text-sm font-semibold hover:bg-gray-100 transition-colors shadow-lg active:scale-95 w-full sm:w-auto mt-1 sm:mt-0 disabled:opacity-50 shrink-0"
+                  >
+                    {status === "loading" ? "Yuborilmoqda..." : "Kutish ro'yxatiga qo'shilish"}
+                    <div className="w-5 h-5 rounded-full bg-black flex items-center justify-center shrink-0">
+                      <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                  </button>
+                </form>
+              )}
+            </div>
+
+            <AnimatePresence>
+              {email.length > 0 && !email.includes('@') && status !== 'success' && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  className="absolute top-full left-0 right-0 pt-3 flex flex-wrap gap-2 justify-center sm:justify-start sm:px-4 z-10"
+                >
+                  {["@gmail.com", "@mail.ru", "@icloud.com"].map(domain => (
+                    <button
+                      key={domain}
+                      type="button"
+                      onClick={() => setEmail(email + domain)}
+                      className="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/20 text-[11px] sm:text-xs text-white/70 hover:text-white transition-all backdrop-blur-md font-medium"
+                    >
+                      {domain}
+                    </button>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
           </motion.div>
           {status === "error" && (
             <div className="text-red-400 text-sm mt-3 font-medium px-4">{errorMessage}</div>
